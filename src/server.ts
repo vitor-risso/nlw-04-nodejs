@@ -1,8 +1,12 @@
+import 'reflect-metadata';
 import express from 'express';
+import './database';
+import { router } from '../routes';
 
 const app = express();
 
-app.get('/', (req, res)=> res.status(200).send({message: "HI"}))
-app.post('/', ()=> console.log('Dados salvos'))
+app.use(express.json())
+
+app.use(router);
 
 app.listen(8080, () =>  console.log('Server is running on port 8080'))
