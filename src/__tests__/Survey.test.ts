@@ -34,14 +34,14 @@ describe('Surveys',  () => {
 
   })
 
- /*  it("Should not be able to create a user id with an d it had been existed", async () => {
+  it("Should not be able to create a user id with an d it had been existed", async () => {
     const response = await request(app).post('/surveys')
     .send({
-      email: "Title test",
-      name: "Description test"
+      title: "Title test",
+      description: "Description test"
     });
 
     expect(response.status).toBe(400);
-  }) */
+  })
 
 })

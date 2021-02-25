@@ -9,6 +9,17 @@ class SurveysController {
 
     const surveyRepository = getCustomRepository(SurveysRepository);
 
+    const surveyAlreadyExistisByTitle = await surveyRepository.findOne({title})
+    const surveyAlreadyExistisByDescription = await surveyRepository.findOne({description})
+
+    if(surveyAlreadyExistisByTitle){
+      return res.status(400).send({message: "survey already exist, change your title and/or description"})
+    }
+
+    if(surveyAlreadyExistisByDescription){
+      return res.status(400).send({message: "survey already exist, change your description and/or title"})
+    }
+
     const survey = surveyRepository.create({
       title, description
     })
